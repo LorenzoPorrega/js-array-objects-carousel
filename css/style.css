@@ -1,0 +1,23 @@
+img{
+  width: 100%;
+}
+
+.images-container{
+  aspect-ratio: 16/9;
+  height: 650px;
+  overflow: hidden;
+}
+
+.images-big{
+  width: calc((100%/10) * 7 - 2.5px);
+}
+
+.images-big img{
+  border: 0px solid transparent;
+  border-radius: 2px;
+}
+
+.images-small{
+  width: calc((100%/10) * 3 - 2.5px);
+}
+
