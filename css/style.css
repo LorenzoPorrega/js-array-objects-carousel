@@ -1,23 +1,73 @@
-img{
-  width: 100%;
+/* GENERAL STYLES */
+
+body{
+  background-image: url("../img/bg.jpg");
+  height: 100vh;
+  overflow: hidden;
 }
 
+/* IMAGES CONTAINER */
+
 .images-container{
-  aspect-ratio: 16/9;
+  aspect-ratio: 21/9;
   height: 650px;
   overflow: hidden;
 }
 
-.images-big{
-  width: calc((100%/10) * 7 - 2.5px);
+/* LEFT BIG IMAGES*/
+
+.big-images-container{
+  width: calc(((100%/10) * 7) - 3px);
+  height: 100%;
+  width: 100%;
 }
 
-.images-big img{
-  border: 0px solid transparent;
-  border-radius: 2px;
+.big-images-container > div{
+  height: 100%;
+  transition: opacity, 1s;
 }
 
-.images-small{
-  width: calc((100%/10) * 3 - 2.5px);
+.opacity{
+  opacity: 1;
 }
 
+.big-images-container img{
+  
+}
+
+.image-text-box{
+  background-color: rgba(232, 232, 232, 0.4);
+}
+
+/* RIGHT SMALL IMAGES */
+
+.arrow-up{
+  top: 5px;
+  left: calc(50% - 12.5px);
+}
+
+.arrow-down{
+  bottom: 5px;
+  left: calc(50% - 12.5px);
+}
+
+div[class*="arrow"]{
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  background-color: rgba(19, 170, 216, 0.629);
+  border-radius: 50%;
+}
+
+.small-images-container{
+  width: calc(((100%/10) * 3) - 3px);
+}
+
+.small-images-container img{
+  height: calc((100% / 5) * 1);
+  object-fit: cover;
+}
+
+.on-display{
+  border: 10px solid rgb(172, 172, 172);
+}
