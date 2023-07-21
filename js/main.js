@@ -56,7 +56,10 @@ let arrowDown = document.querySelector(".arrow-down");
 let bigImagesContainer = document.querySelector(".big-images-container");
 let currentImageDisplayed = 0;
 
-
+/*I establish an add eventListener for the up icon to change the currently
+displayed image to the previous one until the currently displayed one is the first.
+One more click on the icon when the currently displayed image is the first set the 
+currently displayed image to the last one.*/
 arrowUp.addEventListener("click", function(){
   currentImageDisplayed += -1;
   if (currentImageDisplayed < 0){
@@ -71,7 +74,25 @@ arrowUp.addEventListener("click", function(){
                                   </div>`;
 });
 
+/*This addEventListener does the same as the one above but in the reverse order.*/
 arrowDown.addEventListener("click", function(){
+  currentImageDisplayed += +1;
+  if (currentImageDisplayed > 4){
+    currentImageDisplayed = 0;
+  };
+  bigImagesContainer.innerHTML = `<div class="d-flex justify-content-center align-items-center position-relative opacity">
+                                    <img src="${images[currentImageDisplayed].image}" class="position-absolute" alt="">
+                                    <div class="image-text-box position-absolute bottom-0 end-0 w-100 ps-5 pe-2 pt-2 text-end">
+                                      <h4 class="image-title fw-bold">${images[currentImageDisplayed].title}</h4>
+                                      <p class="image-caption">${images[currentImageDisplayed].text}</p>
+                                    </div>
+                                  </div>`;                             
+});
+
+
+/*This is an interval to cycle image to the next one compared to the currently
+displayed one each 3 seconds interval*/
+setInterval(function(){
   currentImageDisplayed += +1;
   if (currentImageDisplayed > 4){
     currentImageDisplayed = 0;
@@ -83,11 +104,4 @@ arrowDown.addEventListener("click", function(){
                                       <p class="image-caption">${images[currentImageDisplayed].text}</p>
                                     </div>
                                   </div>`;                             
-});
-
-
-
-/*
-images.forEach((imageDisplayed, i) => {
-
-});*/
+},3000);
